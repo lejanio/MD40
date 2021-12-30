@@ -1,0 +1,13 @@
+<div class="header">
+  <span class="logo">
+    Mana aplikācija
+  </span>
+  <div class="links">
+    <a *ngFor="let menuItem of menu"
+       class="link"
+       [routerLink]="menuItem.path"
+       routerLinkActive="active">
+      {{ menuItem.title }}
+    </a>
+  </div>
+</div>

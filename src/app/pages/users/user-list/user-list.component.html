@@ -1,1 +1,17 @@
-<p>user-list works!</p>
+<table *ngIf="users">
+  <tr>
+    <th *ngFor="let title of tableHeadTitles">{{ title }}</th>
+  </tr>
+  <tr *ngFor="let user of users, index as index">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.surname }}</td>
+    <td>{{ user.country }}</td>
+    <td>
+      <fa-icon [routerLink]="['/users', user.id]" [icon]="faEdit"></fa-icon>
+    </td>
+    <td>
+      <fa-icon [icon]="faTrash" (click)="deleteUser(index)"></fa-icon>
+    </td>
+  </tr>
+</table>

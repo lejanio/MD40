@@ -1,1 +1,14 @@
-<p>users works!</p>
+<div *ngIf="mode === userPageViewType.LIST" class="content-container">
+  <button [routerLink]="['/users', 'new']" (click)="showAddNewUserForm()">Pievienot jaunu lietotāju</button>
+  <app-user-list [users]="users"></app-user-list>
+</div>
+
+<div *ngIf="mode === userPageViewType.ADD" class="content-container">
+  <button [routerLink]="'/users'" (click)="showUserList()">Atpakaļ uz sarakstu</button>
+  <app-user-add (addUserEvent)="addUser($event)"></app-user-add>
+</div>
+
+<div *ngIf="mode === userPageViewType.EDIT" class="content-container">
+  <button [routerLink]="'/users'" (click)="showUserList()">Atpakaļ uz sarakstu</button>
+  <app-user-edit [user]="user" (editUserEvent)="editUser($event, user?.id)"></app-user-edit>
+</div>

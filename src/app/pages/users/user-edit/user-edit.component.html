@@ -1,0 +1,24 @@
+<form [formGroup]="editUserForm">
+   <div>
+    <label for="name">Vārds </label>
+    <input id="name" type="text" formControlName="name"/>
+  </div>
+
+  <div>
+    <label for="surname">Uzvārds </label>
+    <input id="surname" type="text" formControlName="surname"/>
+  </div>
+
+  <div>
+    <label for="country">Valsts </label>
+    <select id="country" formControlName="country">
+      <option value="lv">Latvija</option>
+      <option value="lt">Lietuva</option>
+      <option value="ee">Igaunija</option>
+    </select>
+  </div>
+
+  <button [routerLink]="['/users']" [disabled]="editUserForm.invalid" (click)="editUser()" type="button">Saglabāt</button>
+</form>
+
+<span>{{ editUserForm.value | json }}</span>

@@ -16,6 +16,10 @@ export class HeaderComponent implements OnInit {
       title: 'Plānotājs',
     },
     {
+      path: 'characters',
+      title: 'Rick & Morty varoņi',
+    },
+    {
       path: 'about',
       title: 'Par',
     },

@@ -1,12 +1,14 @@
 .header {
-  background-color: lightgrey;
-  padding: 10px 20px;
+  background: linear-gradient(to right, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  padding: 50px;
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  color: floralwhite;
+  padding: 50px;
 }
 
 .links {
@@ -28,7 +30,8 @@
 }
 
 .logo {
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 2rem;
 }
 

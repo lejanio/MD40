@@ -1,1 +1,64 @@
-<p>planner works!</p>
+<div>
+  <div class="main-section">
+    <h1 class="heading-section">ToDo List</h1>
+    <div class="input-section">
+      <form [formGroup]="addTodoForm">
+        <input type="text" placeholder="Service List Text" formControlName="name">
+        <button (click)="addOneTodoItem()" class="button">Add Service List Task</button>
+
+      </form>
+      <input [(ngModel)]="inputValue" type="text" placeholder="Enter task..." class="input">
+      <button (click)="addItemHandler(inputValue)" class="button">Add task</button>
+    </div>
+
+    <h2 style="font-size: 2rem; padding: 15px; color: darkslategray">Service list</h2>
+
+    <div *ngIf="todos" class="list-section">
+      <div *ngFor="let todoItem of todos; index as index" class="todo-item">
+        <input type="checkbox" [checked]="todoItem.isCompleted">
+        <div>{{ todoItem.name }}</div>
+
+        <div *ngIf="todoItem.isCompleted; then thenBlock; else elseBlock"></div>
+
+        <ng-template #thenBlock>
+          <div>completed</div>
+        </ng-template>
+
+        <ng-template #elseBlock>
+          <div>still to do</div>
+        </ng-template>
+        <div (click)="removeItemHandler(index)">X</div>
+      </div>
+    </div>
+    <!--    <table *ngIf="users">-->
+    <!--      <tr *ngFor="let user of users">-->
+    <!--        <td>{{ user.id }}</td>-->
+    <!--        <td>{{ user.name }}</td>-->
+    <!--        <td>{{ user.surname }}</td>-->
+    <!--        <td>{{ user.country }}</td>-->
+    <!--      </tr>-->
+    <!--    </table>-->
+
+    <h2 style="font-size: 2rem; padding: 15px; color: darkslategray">Good ol' list</h2>
+
+    <div class="list-section">
+      <div *ngFor="let item of todoItems; index as index" class="todo-item">
+        <input type="checkbox" [checked]="isCompleted" (change)="toggleIsCompleted(index)">
+
+        <div>{{item}}</div>
+
+        <div *ngIf="isCompleted; then thenBlock; else elseBlock"></div>
+
+        <ng-template #thenBlock>
+          <div>completed</div>
+        </ng-template>
+
+        <ng-template #elseBlock>
+          <div>still to do</div>
+        </ng-template>
+
+        <div (click)="removeItemHandler(index)">X</div>
+      </div>
+    </div>
+  </div>
+</div>
